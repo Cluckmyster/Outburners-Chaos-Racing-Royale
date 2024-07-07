@@ -9,8 +9,7 @@ public class WheelControl : MonoBehaviour
     [HideInInspector] public WheelCollider WheelCollider;
 
     // Create properties for the CarControl script
-    // (You should enable/disable these via the 
-    // Editor Inspector window)
+    // (You should enable/disable these via the Editor Inspector window)
     public bool steerable;
     public bool motorized;
 
@@ -26,8 +25,7 @@ public class WheelControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get the Wheel collider's world pose values and
-        // use them to set the wheel model's position and rotation
+        // Get the Wheel collider's world pose values and use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
         rotation *= Quaternion.Euler(0, -90, 0);
         wheelModel.transform.position = position;

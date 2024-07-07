@@ -609,11 +609,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7860663910981750377, guid: 861180191496a6647aa72b96ac1f6785, type: 3}
---- !u!4 &304479962 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4950905696180571615, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-  m_PrefabInstance: {fileID: 621604328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341654299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2800250516343163423, guid: 861180191496a6647aa72b96ac1f6785, type: 3}
@@ -900,34 +895,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5eeb7d91f61dd2c4682b65ca61272b39, type: 2}
-    - target: {fileID: 3140716337147079348, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 700b5bde154704247b96642bf91771e3, type: 2}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.990902
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.13458526
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545287891558367180, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 15.469
-      objectReference: {fileID: 0}
     - target: {fileID: 3646020427717997836, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -984,26 +951,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6114661042344912592, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: maxSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114661042344912592, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: brakeTorque
-      value: 8000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114661042344912592, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: motorTorque
-      value: 8000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114661042344912592, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: steeringRange
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114661042344912592, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      propertyPath: steeringRangeAtMaxSpeed
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 6402675542270230907, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
       propertyPath: m_Name
       value: Player Car
@@ -1019,10 +966,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2142845262500240666, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1591038072}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
 --- !u!1 &629233064 stripped
 GameObject:
@@ -2627,130 +2571,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3048851310703494, guid: 861180191496a6647aa72b96ac1f6785, type: 3}
---- !u!1 &1591038068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2142845262500240666, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-  m_PrefabInstance: {fileID: 621604328}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1591038071 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4666051771700771858, guid: 31554972fd6d09449a5f67e7d3d56403, type: 3}
-  m_PrefabInstance: {fileID: 621604328}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1591038072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591038068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c05d7cc08194f468ef623d3dd60f01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 304479962}
-  startCameraIndex: 0
-  cameras:
-  - _camera: {fileID: 1591038071}
-    rotationType: 6
-    volume: 1
-  cameraSettings:
-    inputMouseX: Mouse X
-    inputMouseY: Mouse Y
-    inputMouseScrollWheel: Mouse ScrollWheel
-    cameraSwitchKey: 99
-    camerasUpdateMode: 2
-    ajustTheLayers: 1
-    firstPerson:
-      sensibilityX: 10
-      sensibilityY: 10
-      speedScroolZoom: 0.5
-      horizontalAngle: 65
-      verticalAngle: 20
-      maxScroolZoom: 30
-      rotateWhenClick: 0
-      keyToRotate: mouse 0
-      invertXInput: 0
-      invertYInput: 0
-    followPlayer:
-      ignoreCollision: 0
-      displacementSpeed: 3
-      customLookAt: 0
-      spinSpeedCustomLookAt: 15
-      useScrool: 0
-      scroolSpeed: 1
-      minDistance: 7
-      maxDistance: 40
-    orbital:
-      sensibility: 0.8
-      speedScrool: 1
-      speedYAxis: 0.5
-      minDistance: 5
-      maxDistance: 50
-      minAngleY: 0
-      maxAngleY: 80
-      ignoreCollision: 0
-      rotateWhenClick: 0
-      keyToRotate: mouse 0
-      invertXInput: 0
-      invertYInput: 0
-    OrbitalThatFollows:
-      displacementSpeed: 20
-      customLookAt: 0
-      spinSpeedCustomLookAt: 15
-      sensibility: 0.8
-      speedScrool: 1
-      speedYAxis: 0.5
-      minDistance: 5
-      maxDistance: 50
-      minAngleY: 0
-      maxAngleY: 80
-      rotateWhenClick: 0
-      keyToRotate: mouse 0
-      invertXInput: 0
-      invertYInput: 0
-      ResetControlType: 0
-      resetKey: 122
-      timeToReset: 1
-      ignoreCollision: 0
-    ETS_StyleCamera:
-      sensibilityX: 10
-      sensibilityY: 10
-      ETS_CameraShift: 1
-      maxScroolZoom: 30
-      speedScroolZoom: 0.5
-      rotateWhenClick: 0
-      keyToRotate: mouse 0
-      invertXInput: 0
-      invertYInput: 0
-    FlyCamera_OnlyWindows:
-      horizontalMove: Horizontal
-      verticalMove: Vertical
-      speedKeyCode: 304
-      moveUp: 101
-      moveDown: 113
-      sensibilityX: 10
-      sensibilityY: 10
-      movementSpeed: 20
-      invertXInput: 0
-      invertYInput: 0
-    PlaneX_Z:
-      minXPosition: -100
-      maxXPosition: 100
-      minZPosition: -100
-      maxZPosition: 100
-      normalYPosition: 40
-      limitYPosition: 22
-      edgeDistanceToStartDescending: 50
-      displacementSpeed: 2
-      SelectRotation: 2
-      spinSpeedCustomLookAt: 1
-  _horizontalInputMSACC: 0
-  _verticalInputMSACC: 0
-  _scrollInputMSACC: 0
-  _enableMobileInputs: 0
-  _mobileInputsIndex: 0
 --- !u!1 &1608277130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 281855664364225751, guid: 861180191496a6647aa72b96ac1f6785, type: 3}

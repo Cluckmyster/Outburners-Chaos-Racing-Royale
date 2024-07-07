@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarControl : MonoBehaviour
 {
-    public float motorTorque = 2000;
-    public float brakeTorque = 2000;
+    public float motorTorque = 20000;
+    public float brakeTorque = 20000;
     public float maxSpeed = 20;
     public float steeringRange = 30;
     public float steeringRangeAtMaxSpeed = 10;
@@ -14,20 +14,23 @@ public class CarControl : MonoBehaviour
     WheelControl[] wheels;
     Rigidbody rigidBody;
 
+    //For setting CoM from inspector
+    public Transform centreMass;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
 
         // Adjust center of mass vertically, to help prevent the car from rolling
-        rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
+        rigidBody.centerOfMass = centreMass.localPosition;
 
         // Find all child GameObjects that have the WheelControl script attached
         wheels = GetComponentsInChildren<WheelControl>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         float vInput = Input.GetAxis("Vertical");
@@ -38,8 +41,7 @@ public class CarControl : MonoBehaviour
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
 
 
-        // Calculate how close the car is to top speed
-        // as a number from zero to one
+        // Calculate how close the car is to top speed as a number from zero to one
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
 
         // Use that to calculate how much torque is available 
@@ -50,9 +52,14 @@ public class CarControl : MonoBehaviour
         // (the car steers more gently at top speed)
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-        // Check whether the user input is in the same direction 
-        // as the car's velocity
+        // Check whether the user input is in the same direction as the car's velocity
         bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+
+        if (vInput == 0)
+        {
+            isAccelerating = false;
+
+        }
 
         foreach (var wheel in wheels)
         {
