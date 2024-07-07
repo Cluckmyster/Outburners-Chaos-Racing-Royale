@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarControl : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     public float motorTorque = 20000;
     public float brakeTorque = 20000;
-    public float maxSpeed = 20;
+    public float maxSpeed = 100;
     public float steeringRange = 30;
     public float steeringRangeAtMaxSpeed = 10;
-    public float centreOfGravityOffset = -1f;
+
+    public float currentSpeed; 
 
     WheelControl[] wheels;
     Rigidbody rigidBody;
@@ -29,6 +30,16 @@ public class CarControl : MonoBehaviour
         wheels = GetComponentsInChildren<WheelControl>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            Vector3 pos = gameObject.transform.position;
+            gameObject.transform.position = new Vector3(pos.x, pos.y + 2, pos.z);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -39,6 +50,10 @@ public class CarControl : MonoBehaviour
         // Calculate current speed in relation to the forward direction of the car
         // (this returns a negative number when traveling backwards)
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
+        if (currentSpeed < 0)
+        {
+            currentSpeed = -forwardSpeed;
+        }
 
 
         // Calculate how close the car is to top speed as a number from zero to one
@@ -58,7 +73,6 @@ public class CarControl : MonoBehaviour
         if (vInput == 0)
         {
             isAccelerating = false;
-
         }
 
         foreach (var wheel in wheels)
