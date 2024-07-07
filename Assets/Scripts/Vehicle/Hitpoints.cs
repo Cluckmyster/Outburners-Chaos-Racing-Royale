@@ -73,6 +73,9 @@ public class Hitpoints : MonoBehaviour
             Hitpoints otherScript = other.gameObject.transform.parent.GetComponent<Hitpoints>();
             hitpoints = hitpoints - otherScript.damage;
 
+            //Audio
+            other.transform.gameObject.GetComponent<AudioSource>().Play();
+
             //Setting cooldown on so they can't repeatedly damage a car in melee
             if (otherScript.cooldown == false)
             {

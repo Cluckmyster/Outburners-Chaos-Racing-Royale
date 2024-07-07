@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public AudioClip idle;
+    public AudioClip moving;
+    private AudioSource audioSource;
+    bool playing;
+
     public float motorTorque = 20000;
     public float brakeTorque = 20000;
     public float maxSpeed = 100;
@@ -21,6 +26,7 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody>();
 
         // Adjust center of mass vertically, to help prevent the car from rolling
@@ -73,6 +79,20 @@ public class CarController : MonoBehaviour
         if (vInput == 0)
         {
             isAccelerating = false;
+
+            if (audioSource.clip == moving)
+            {
+                audioSource.clip = idle;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if (audioSource.clip == idle)
+            {
+                audioSource.clip = moving;
+                audioSource.Play();
+            }
         }
 
         foreach (var wheel in wheels)

@@ -31,6 +31,8 @@ public class AIController : MonoBehaviour
     WheelControl[] wheels;
     Rigidbody rigidBody;
 
+    public GameObject bumper;
+
     //For setting CoM from inspector
     public Transform centreMass;
 
