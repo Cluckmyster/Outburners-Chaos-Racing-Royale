@@ -78,8 +78,8 @@ public class PlayerObjectController : NetworkBehaviour
                 modelsLoaded = true;
 
                 //Position car near spawn point
-                Vector3 spawnPoint = GameObject.Find("SpawnPoint").transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
-                gameObject.transform.position = spawnPoint;
+                Vector3 spawnPoint = GameObject.Find("SpawnPoint").transform.position;
+                gameObject.transform.position = new Vector3(spawnPoint.x + Random.Range(-50.0f, 50.0f), spawnPoint.y, spawnPoint.z + Random.Range(-50.0f, 50.0f));
             }
         }
     }
