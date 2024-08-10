@@ -1,8 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Mirror;
+using Steamworks;
+using UnityEngine.SceneManagement;
+using TMPro;
 
-public class CarController : MonoBehaviour
+public class CarController : NetworkBehaviour
 {
     public AudioClip idle;
     public AudioClip moving;
