@@ -71,6 +71,7 @@ public class Hitpoints : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("AICar"))
         {
             Hitpoints otherScript = other.gameObject.transform.parent.GetComponent<Hitpoints>();
+            Debug.Log(otherScript.damage);
             hitpoints = hitpoints - otherScript.damage;
 
             //Audio
