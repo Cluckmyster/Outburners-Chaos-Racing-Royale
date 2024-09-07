@@ -43,6 +43,12 @@ public class PlayerObjectController : NetworkBehaviour
         }
     }
 
+    private void ResetPosition()
+    {
+        Vector3 spawnPoint = GameObject.Find("SpawnPoint").transform.position;
+        gameObject.transform.position = new Vector3(spawnPoint.x + Random.Range(-50.0f, 50.0f), spawnPoint.y, spawnPoint.z + Random.Range(-50.0f, 50.0f));
+    }
+
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -52,9 +58,18 @@ public class PlayerObjectController : NetworkBehaviour
 
     private void Update()
     {
+        if (gameObject.transform.position.y < -200.0f)
+        {
+            ResetPosition();
+        }
+
         //Deactivate player car in lobby and reactivate in level
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
+            //Toggle cursor on in lobby
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
             if (modelsLoaded)
             {
                 gameObject.GetComponent<AudioSource>().enabled = false;
@@ -67,19 +82,25 @@ public class PlayerObjectController : NetworkBehaviour
         }
         else
         {
+            //Toggle cursor off in level
+            //Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             if (!modelsLoaded)
             {
                 gameObject.GetComponent<AudioSource>().enabled = true;
                 foreach (Transform child in gameObject.transform)
                 {
-                    child.gameObject.SetActive(true);
+                    if (child.name != "Main Camera" || gameObject.name == "LocalGamePlayer")
+                    {
+                        child.gameObject.SetActive(true);
+                    }
                 }
-                
+
                 modelsLoaded = true;
 
                 //Position car near spawn point
-                Vector3 spawnPoint = GameObject.Find("SpawnPoint").transform.position;
-                gameObject.transform.position = new Vector3(spawnPoint.x + Random.Range(-50.0f, 50.0f), spawnPoint.y, spawnPoint.z + Random.Range(-50.0f, 50.0f));
+                ResetPosition();
             }
         }
     }

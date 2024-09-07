@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3545287891558367180
 Transform:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05d7cc08194f468ef623d3dd60f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4950905696180571615}
+  target: {fileID: 3646020427717997836}
   startCameraIndex: 0
   cameras:
   - _camera: {fileID: 4666051771700771858}
@@ -792,6 +792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   wheelModel: {fileID: 333442889936183506}
   WheelCollider: {fileID: 0}
   steerable: 0
@@ -963,6 +966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   wheelModel: {fileID: 5841123168260587639}
   WheelCollider: {fileID: 0}
   steerable: 1
@@ -1221,7 +1227,7 @@ MonoBehaviour:
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 1
-  coordinateSpace: 0
+  coordinateSpace: 1
   sendIntervalMultiplier: 1
   timelineOffset: 0
   showGizmos: 0
@@ -1572,6 +1578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   wheelModel: {fileID: 1852401982915153775}
   WheelCollider: {fileID: 0}
   steerable: 0
@@ -1660,6 +1669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   wheelModel: {fileID: 4648631353247565102}
   WheelCollider: {fileID: 0}
   steerable: 1

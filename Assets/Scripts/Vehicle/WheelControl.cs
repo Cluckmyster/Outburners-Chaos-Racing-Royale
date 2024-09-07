@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class WheelControl : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class WheelControl : MonoBehaviour
     [HideInInspector] public WheelCollider WheelCollider;
 
     // Create properties for the CarControl script
-    // (You should enable/disable these via the Editor Inspector window)
     public bool steerable;
     public bool motorized;
 
