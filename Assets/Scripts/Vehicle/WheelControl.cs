@@ -27,7 +27,7 @@ public class WheelControl : MonoBehaviour
     {
         // Get the Wheel collider's world pose values and use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
-        rotation *= Quaternion.Euler(0, -90, 0);
+        rotation *= Quaternion.Euler(0, 0, 0);
         wheelModel.transform.position = position;
         wheelModel.transform.rotation = rotation;
     }
