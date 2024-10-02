@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 4666051771700771858}
   - component: {fileID: 8787488151342962439}
   - component: {fileID: 7530619752043031202}
+  - component: {fileID: 8869192069783088069}
   - component: {fileID: 6813665890571033232}
   m_Layer: 0
   m_Name: Main Camera
@@ -399,7 +400,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142845262500240666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33c05d7cc08194f468ef623d3dd60f01, type: 3}
   m_Name: 
@@ -506,6 +507,25 @@ MonoBehaviour:
   _scrollInputMSACC: 0
   _enableMobileInputs: 0
   _mobileInputsIndex: 0
+--- !u!114 &8869192069783088069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142845262500240666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0728473e75320c46ad558a86e66dcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3646020427717997836}
+  mouseSensitivity:
+    horizontalSensitivity: 480
+    verticalSensitivity: 480
+  camAngle:
+    minAngle: 0
+    maxAngle: 90
 --- !u!82 &6813665890571033232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -792,9 +812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   wheelModel: {fileID: 333442889936183506}
   WheelCollider: {fileID: 0}
   steerable: 0
@@ -966,9 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   wheelModel: {fileID: 5841123168260587639}
   WheelCollider: {fileID: 0}
   steerable: 1
@@ -1578,9 +1592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   wheelModel: {fileID: 1852401982915153775}
   WheelCollider: {fileID: 0}
   steerable: 0
@@ -1669,9 +1680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a4e90d6b79d4d8104e3e55c19ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   wheelModel: {fileID: 4648631353247565102}
   WheelCollider: {fileID: 0}
   steerable: 1
