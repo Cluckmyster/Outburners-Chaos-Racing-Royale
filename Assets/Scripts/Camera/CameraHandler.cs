@@ -39,21 +39,21 @@ public class CameraHandler : MonoBehaviour
 
     private void Update()
     {
-        // Change camera Pitch/Yaw values depending of how players move their mouse
+        // Changes camera Pitch/Yaw values depending of how players move their mouse
         camRotation.yaw += (Input.GetAxis("Mouse X") * mouseSensitivity.horizontalSensitivity) * Time.deltaTime;
         camRotation.pitch += (Input.GetAxis("Mouse Y") * mouseSensitivity.verticalSensitivity) * Time.deltaTime;
 
-        // Clamp Pitch (X axis rotation) to not let it be unmanaged
+        // Clamps Pitch (X axis rotation) to not let it be unmanaged
         camRotation.pitch = Mathf.Clamp(camRotation.pitch, camAngle.minAngle, camAngle.maxAngle);
     }
 
     private void LateUpdate()
     {
-        //transform.eulerAngles = new Vector3(camRotation.pitch, camRotation.yaw, 0);
-        //transform.position = transform.position - transform.forward * distanceToPlayer;
-        transform.RotateAround(target.position, Vector3.up, (Input.GetAxis("Mouse X") * mouseSensitivity.horizontalSensitivity) * Time.deltaTime);
-        transform.RotateAround(target.position, Vector3.right, (Input.GetAxis("Mouse Y") * mouseSensitivity.verticalSensitivity) * Time.deltaTime);
-        transform.LookAt(target);
+        // Rotates the camera using Pitch and Yaw values
+        transform.localEulerAngles = new Vector3(camRotation.pitch, camRotation.yaw, 0);
+  
+        // Sets camera position (after rotation) to always look the player
+        transform.position = target.position - transform.forward * distanceToPlayer;
     }
 
     #endregion

@@ -7,7 +7,10 @@ using UnityEngine;
 [Serializable]
 public struct MouseSensitivity
 {
+    [Tooltip("Mouse sensitivity on the X axis (horizontal movements).")]
     public float horizontalSensitivity;
+
+    [Tooltip("Mouse sensitivity on the Y axis (vertical movements).")]
     public float verticalSensitivity;
 }
 
@@ -32,6 +35,9 @@ public struct CameraRotation
 [Serializable]
 public struct CameraAngle
 {
+    [Tooltip("Minimum angle that camera can reach.")]
     public float minAngle;
+
+    [Tooltip("Maximum angle that camera can reach.")]
     public float maxAngle;
 }

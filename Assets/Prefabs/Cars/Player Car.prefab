@@ -524,8 +524,8 @@ MonoBehaviour:
     horizontalSensitivity: 480
     verticalSensitivity: 480
   camAngle:
-    minAngle: 0
-    maxAngle: 90
+    minAngle: 18
+    maxAngle: 38
 --- !u!82 &6813665890571033232
 AudioSource:
   m_ObjectHideFlags: 0
