@@ -33,7 +33,7 @@ public class CameraRotator : MonoBehaviour
 
     [Header("Camera reset", order = 1)]
 
-    [Tooltip("How much time must pass before camera resets its position.")]
+    [Tooltip("How much time (in seconds) must pass before camera resets its position.")]
     [SerializeField] private float maxIdleTimer;
 
     private float idleTimer;
