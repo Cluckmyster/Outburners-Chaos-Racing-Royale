@@ -9,9 +9,16 @@ public class WheelControl : MonoBehaviour
 
     [HideInInspector] public WheelCollider WheelCollider;
 
-    // Create properties for the CarControl script
-    public bool steerable;
-    public bool motorized;
+    [Tooltip("Does the wheel belong to car's forward axle?")]
+    [SerializeField] private bool forwardAxle;
+
+    private bool steerable;
+    private bool motorized;
+
+    // Properties for "steerable" and "motorized" bools
+    // This makes the code safer
+    public bool Steerable { get => steerable; }
+    public bool Motorized { get => motorized; }
 
     Vector3 position;
     Quaternion rotation;
@@ -20,6 +27,18 @@ public class WheelControl : MonoBehaviour
     private void Start()
     {
         WheelCollider = GetComponent<WheelCollider>();
+        
+        if (forwardAxle)
+        {
+            steerable = true;
+            motorized = true;
+        }
+
+        else
+        {
+            steerable= false;
+            motorized = true;
+        }
     }
 
     // Update is called once per frame

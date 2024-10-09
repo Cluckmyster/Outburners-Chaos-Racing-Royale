@@ -971,8 +971,8 @@ MonoBehaviour:
   motorTorque: 20000
   brakeTorque: 20000
   maxSpeed: 100
-  steeringRange: 30
-  steeringRangeAtMaxSpeed: 30
+  steeringRange: 25
+  steeringRangeAtMaxSpeed: 7
   currentSpeed: 0
   centreMass: {fileID: 7294017027541143954}
 --- !u!114 &7507021316500093966

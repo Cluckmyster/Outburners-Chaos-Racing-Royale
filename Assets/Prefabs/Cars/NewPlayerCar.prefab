@@ -42,7 +42,7 @@ WheelCollider:
   m_GameObject: {fileID: 3303938219586728095}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.02
+  m_Radius: 1
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -58,7 +58,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.15
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -86,8 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 8893729406566602798}
   WheelCollider: {fileID: 0}
-  steerable: 0
-  motorized: 1
+  forwardAxle: 0
 --- !u!1 &3629477773379217997
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +129,7 @@ WheelCollider:
   m_GameObject: {fileID: 3629477773379217997}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.02
+  m_Radius: 1
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -146,7 +145,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.15
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -174,8 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 5325135772868987151}
   WheelCollider: {fileID: 0}
-  steerable: 1
-  motorized: 1
+  forwardAxle: 1
 --- !u!1 &3864030872369862741
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +216,7 @@ WheelCollider:
   m_GameObject: {fileID: 3864030872369862741}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.02
+  m_Radius: 1
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -234,7 +232,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.15
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -262,8 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 2001311400722056262}
   WheelCollider: {fileID: 0}
-  steerable: 0
-  motorized: 1
+  forwardAxle: 0
 --- !u!1 &6597762099120015343
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6541724781963978447}
   m_Layer: 0
-  m_Name: EmptyCenter
+  m_Name: CenterOfMass
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,7 +775,7 @@ Transform:
   m_GameObject: {fileID: 8468383378499342608}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.9397291, y: -1, z: 4.494}
+  m_LocalPosition: {x: -1.9397291, y: -1, z: 4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,7 +790,7 @@ WheelCollider:
   m_GameObject: {fileID: 8468383378499342608}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.02
+  m_Radius: 1
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -809,7 +806,7 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 5
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.15
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -837,8 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 7515817654488547643}
   WheelCollider: {fileID: 0}
-  steerable: 1
-  motorized: 1
+  forwardAxle: 1
 --- !u!1001 &3877112342458799082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1430,9 +1426,11 @@ MonoBehaviour:
   moving: {fileID: 8300000, guid: 743a35f0ac6622d47a6ec50adf5f52ab, type: 3}
   motorTorque: 20000
   brakeTorque: 20000
-  maxSpeed: 100
-  steeringRange: 30
-  steeringRangeAtMaxSpeed: 10
+  maxSpeed: 50
+  steeringRange: 25
+  steeringRangeAtMaxSpeed: 7
+  motorAcceleration: 1.8
+  motorRearAcceleration: 0.5
   currentSpeed: 0
   centreMass: {fileID: 6541724781963978447}
 --- !u!114 &3532585181304697362

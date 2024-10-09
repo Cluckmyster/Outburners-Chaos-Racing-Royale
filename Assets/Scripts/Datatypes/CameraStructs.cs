@@ -21,7 +21,7 @@ public struct CameraRotation
     /// </summary>
     public float pitch;
 
-    /// <summary>
+    /// <summary><
     /// Works on camera Y axis.
     /// </summary>
     public float yaw;
