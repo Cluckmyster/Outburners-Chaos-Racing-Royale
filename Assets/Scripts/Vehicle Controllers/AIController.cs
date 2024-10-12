@@ -188,7 +188,7 @@ public class AIController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             // Apply steering to Wheel colliders that have "Steerable" enabled
-            if (wheel.steerable)
+            if (wheel.Steerable)
             {
                 wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
             }
@@ -196,7 +196,7 @@ public class AIController : MonoBehaviour
             if (isAccelerating)
             {
                 // Apply torque to Wheel colliders that have "Motorized" enabled
-                if (wheel.motorized)
+                if (wheel.Motorized)
                 {
                     wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
                 }
