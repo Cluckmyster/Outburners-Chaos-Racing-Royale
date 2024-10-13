@@ -73,7 +73,7 @@ public class CarController : NetworkBehaviour
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
         currentSpeed = forwardSpeed;
         
-        if (rigidBody.velocity.z < 0)
+        if (reverseGear)
         {
             currentSpeed = -forwardSpeed;
         }
@@ -127,7 +127,15 @@ public class CarController : NetworkBehaviour
                 // Apply torque to Wheel colliders that have "Motorized" enabled
                 if (wheel.Motorized)
                 {
-                    wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                    if (!reverseGear)
+                    {
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque * motorAcceleration;
+                    }
+
+                    else
+                    {
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque * motorRearAcceleration;
+                    }
                 }
                 wheel.WheelCollider.brakeTorque = 0;
             }

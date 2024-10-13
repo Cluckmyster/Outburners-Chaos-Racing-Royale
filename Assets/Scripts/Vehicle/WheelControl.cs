@@ -36,7 +36,7 @@ public class WheelControl : MonoBehaviour
 
         else
         {
-            steerable= false;
+            steerable = false;
             motorized = true;
         }
     }

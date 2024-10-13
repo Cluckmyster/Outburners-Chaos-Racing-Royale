@@ -1430,7 +1430,7 @@ MonoBehaviour:
   steeringRange: 25
   steeringRangeAtMaxSpeed: 7
   motorAcceleration: 1.8
-  motorRearAcceleration: 0.5
+  motorRearAcceleration: 1
   currentSpeed: 0
   centreMass: {fileID: 6541724781963978447}
 --- !u!114 &3532585181304697362
