@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,6 +42,21 @@ public class CameraRotator : MonoBehaviour
 
     #endregion
 
+    #region Camera management
+
+    [Header("Camera Management", order = 2)]
+
+    [Tooltip("Target reference position for the camera. Used to fix player camera's position.")]
+    [SerializeField] private Transform camReferencePosition;
+
+    [Tooltip("The speed at how much fast the fixed camera is oriented behind the car. Multiplied by deltaTime.")]
+    [SerializeField] private float orientationSpeed;
+    
+    private bool freeLook = false;
+    private float freeLookTimer = 0;
+
+    #endregion
+
     #endregion
 
     #region Methods
@@ -60,6 +76,27 @@ public class CameraRotator : MonoBehaviour
 
     private void Update()
     {
+        #region Camera management
+
+        // When you press key button, camera mode will switch from fixed to free look
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            freeLook = !freeLook;
+        }
+
+        if(freeLook)
+        {
+            freeLookTimer += Time.deltaTime;
+            Mathf.Clamp(freeLookTimer, 0, 1);
+        }
+
+        else
+        {
+            freeLookTimer = 0;
+        }
+
+        #endregion
+
         if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
             // If any movement with mouse is performed, all timers are resetted
@@ -83,10 +120,27 @@ public class CameraRotator : MonoBehaviour
 
     private void LateUpdate()
     {
+        TransformCamera();
+    }
+
+    #endregion
+
+    #region Personal Methods
+
+    private void TransformCamera()
+    {
         if (idleTimer < maxIdleTimer)
         {
-            // Rotates the camera using Pitch and Yaw values
-            transform.localEulerAngles = new Vector3(camRotation.pitch, camRotation.yaw, 0);
+            // Smoothly rotates the camera using Pitch and Yaw values
+            transform.localEulerAngles = new Vector3
+                (
+                Mathf.LerpAngle(transform.localEulerAngles.x, camRotation.pitch, freeLookTimer),
+                Mathf.LerpAngle(transform.localEulerAngles.y, camRotation.yaw, freeLookTimer),
+                0
+                )
+                ;
+
+            //transform.localEulerAngles = new Vector3(camRotation.pitch, camRotation.yaw, 0);
         }
 
         else
@@ -99,13 +153,29 @@ public class CameraRotator : MonoBehaviour
             camRotation.yaw = transform.localEulerAngles.y;
         }
 
-        // Sets camera position (after rotation) to always look to the player
-        transform.position = target.position - transform.forward * distanceToPlayer;
+        #region Camera - Modes
+
+        if (freeLook)
+        {
+            // Sets camera position (after rotation) to always look to the player
+            transform.position = target.position - transform.forward * distanceToPlayer;
+        }
+
+        else
+        {
+            // Orients camera to be always behind a specific point behind the player
+            transform.position = Vector3.MoveTowards(transform.position, camReferencePosition.position, orientationSpeed * Time.deltaTime);
+            
+            // Sets camera's pitch and yaw to current rotation values, to avoid camera snaps
+            camRotation.pitch = transform.localEulerAngles.x;
+            camRotation.yaw = transform.localEulerAngles.y;
+            
+            // Makes the camera always look the car when rotating with it
+            transform.LookAt(target);
+        }
+
+        #endregion
     }
-
-    #endregion
-
-    #region Personal Methods
 
     private IEnumerator CameraReset(float time)
     {

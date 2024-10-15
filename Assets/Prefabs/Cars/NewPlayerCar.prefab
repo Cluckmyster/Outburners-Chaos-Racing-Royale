@@ -424,6 +424,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6619776330740835559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7512327476459036904}
+  m_Layer: 0
+  m_Name: CameraReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7512327476459036904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619776330740835559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.100188084, y: -0, z: -0, w: 0.99496853}
+  m_LocalPosition: {x: 0, y: 6, z: -18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3622297486476407809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7055241952929183989
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +498,7 @@ GameObject:
   - component: {fileID: 7966175639265528700}
   - component: {fileID: 2911151740794860398}
   - component: {fileID: 3529928726029491453}
+  - component: {fileID: 5880341692323282420}
   - component: {fileID: 7473964186345232952}
   m_Layer: 0
   m_Name: Main Camera
@@ -645,6 +677,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5880341692323282420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185507545269371341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdeb54231cd7f24690da8c746ea3038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7473964186345232952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +709,8 @@ MonoBehaviour:
     minAngle: 18
     maxAngle: 38
   maxIdleTimer: 1.5
+  camReferencePosition: {fileID: 7512327476459036904}
+  orientationSpeed: 480
 --- !u!1 &8069238311807932063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1293,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f83f46769b6a754a9429bdde746b20a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6541724781963978447}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f83f46769b6a754a9429bdde746b20a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7512327476459036904}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f83f46769b6a754a9429bdde746b20a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1312473697658740321}
