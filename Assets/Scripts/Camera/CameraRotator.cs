@@ -181,8 +181,8 @@ public class CameraRotator : MonoBehaviour
     {
         transform.localEulerAngles = new Vector3
                 (
-                Mathf.LerpAngle(transform.localEulerAngles.x, camStartRotation.x, timeCount),
-                Mathf.LerpAngle(transform.localEulerAngles.y, camStartRotation.y, timeCount),
+                Mathf.LerpAngle(transform.localEulerAngles.x, Mathf.Clamp(camReferencePosition.eulerAngles.x, camAngle.minAngle, camAngle.maxAngle), timeCount),
+                Mathf.LerpAngle(transform.localEulerAngles.y, camReferencePosition.eulerAngles.y, timeCount),
                 0
                 )
                 ;
