@@ -105,7 +105,7 @@ public class CameraRotator : MonoBehaviour
 
             // Changes camera Pitch/Yaw values depending of how players move their mouse
             camRotation.yaw += (Input.GetAxis("Mouse X") * mouseSensitivity.horizontalSensitivity) * Time.deltaTime;
-            camRotation.pitch += (Input.GetAxis("Mouse Y") * mouseSensitivity.verticalSensitivity) * Time.deltaTime;
+            camRotation.pitch -= (Input.GetAxis("Mouse Y") * mouseSensitivity.verticalSensitivity) * Time.deltaTime;    // Inverted to match correct camera movement
 
             // Clamps Pitch (X axis rotation) to not let it be unmanaged
             camRotation.pitch = Mathf.Clamp(camRotation.pitch, camAngle.minAngle, camAngle.maxAngle);
