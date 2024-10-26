@@ -24,7 +24,7 @@ public class AIController : MonoBehaviour
     private int retry;
     private int totalResetPoints;
 
-    private bool ramming = false;
+    //private bool ramming = false;
     private bool resetting = false;
     public float currentSpeed;
 

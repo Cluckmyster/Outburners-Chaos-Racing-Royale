@@ -1472,7 +1472,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   playerGun: {fileID: 0}
   dead: 0
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 6220471516666027714}
 --- !u!82 &7434706181875928430
 AudioSource:
   m_ObjectHideFlags: 0

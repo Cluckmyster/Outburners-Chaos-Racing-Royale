@@ -21,9 +21,9 @@ public class PlayerObjectController : NetworkBehaviour
 
     public bool dead = false;
 
-    private bool modelsLoaded = true;
-
-
+    private bool carControlOn = true;
+    
+    public Material newColour;
     public GameObject playerModel;
     private Rigidbody rb;
 
@@ -63,21 +63,22 @@ public class PlayerObjectController : NetworkBehaviour
             ResetPosition();
         }
 
-        //Deactivate player car in lobby and reactivate in level
+        //Position player car in lobby and move to spawn in level
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
+            //Position car in front of camera
+            gameObject.transform.position = GameObject.Find("carPos").transform.position;
+            gameObject.transform.rotation = GameObject.Find("carPos").transform.rotation;
+
             //Toggle cursor on in lobby
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
-            if (modelsLoaded)
+            if (carControlOn)
             {
                 gameObject.GetComponent<AudioSource>().enabled = false;
-                foreach (Transform child in gameObject.transform)
-                {
-                    child.gameObject.SetActive(false);
-                }
-                modelsLoaded = false;
+                gameObject.GetComponent<CarController>().enabled = false;
+                carControlOn = false;
             }
         }
         else
@@ -86,9 +87,10 @@ public class PlayerObjectController : NetworkBehaviour
             //Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
-            if (!modelsLoaded)
+            if (!carControlOn)
             {
                 gameObject.GetComponent<AudioSource>().enabled = true;
+                gameObject.GetComponent<CarController>().enabled = true;
                 foreach (Transform child in gameObject.transform)
                 {
                     if (child.name != "Main Camera" || gameObject.name == "LocalGamePlayer")
@@ -97,7 +99,7 @@ public class PlayerObjectController : NetworkBehaviour
                     }
                 }
 
-                modelsLoaded = true;
+                carControlOn = true;
 
                 //Position car near spawn point
                 ResetPosition();
@@ -180,5 +182,21 @@ public class PlayerObjectController : NetworkBehaviour
     public void CmdCanStartGame(string scene)
     {
         manager.StartGame(scene);
+    }
+
+    [Command]
+    public void cmdUpdateCar()
+    {
+        ChangeCarColour(newColour);
+    }
+
+    //Update car colour
+    private void ChangeCarColour(Material mat)
+    {
+        Material[] mats = playerModel.GetComponent<MeshRenderer>().materials;
+        mats[0] = mat;
+        mats[1] = mat;
+        mats[2] = mat;
+        playerModel.GetComponent<MeshRenderer>().materials = mats;
     }
 }
