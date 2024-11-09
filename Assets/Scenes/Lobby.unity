@@ -710,6 +710,14 @@ MonoBehaviour:
   green: {fileID: 2100000, guid: d2d163498bcdefb48ae0ff381bfb153c, type: 2}
   yellow: {fileID: 2100000, guid: 116f579678f8f024d983c347df0f7281, type: 2}
   orange: {fileID: 2100000, guid: 5fb1d564e396381428f39ef92880771f, type: 2}
+  playerColours:
+  - {fileID: 2100000, guid: 5eeb7d91f61dd2c4682b65ca61272b39, type: 2}
+  - {fileID: 2100000, guid: a870ca4ff9c2f354ca3edb563385739d, type: 2}
+  - {fileID: 2100000, guid: d938696d989f9464db4029a60abb1149, type: 2}
+  - {fileID: 2100000, guid: d2d163498bcdefb48ae0ff381bfb153c, type: 2}
+  - {fileID: 2100000, guid: 116f579678f8f024d983c347df0f7281, type: 2}
+  - {fileID: 2100000, guid: 5fb1d564e396381428f39ef92880771f, type: 2}
+  currentColourIndex: 0
 --- !u!1 &148684546
 GameObject:
   m_ObjectHideFlags: 0
