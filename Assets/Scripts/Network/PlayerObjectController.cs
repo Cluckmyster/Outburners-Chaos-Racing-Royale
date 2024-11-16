@@ -16,6 +16,10 @@ public class PlayerObjectController : NetworkBehaviour
     [SyncVar(hook = nameof(PlayerNameUpdate))] public string PlayerName;
     [SyncVar(hook = nameof(PlayerReadyUpdate))] public bool PlayerReady;
 
+    //Player Customisation
+    [SyncVar(hook = nameof(ChangeCarColour))] public int PlayerColour;
+    public Material[] colours;
+
     public GameObject playerCamera;
     public GameObject playerGun;
 
@@ -26,6 +30,7 @@ public class PlayerObjectController : NetworkBehaviour
     public Material newColour;
     public GameObject playerModel;
     private Rigidbody rb;
+    private MeshRenderer carMesh;
 
     private CarController playerMovementScript;
 
@@ -54,6 +59,7 @@ public class PlayerObjectController : NetworkBehaviour
         DontDestroyOnLoad(this.gameObject);
         rb = this.gameObject.GetComponent<Rigidbody>();
         playerMovementScript = gameObject.GetComponent<CarController>();
+        carMesh = playerModel.GetComponent<MeshRenderer>();
     }
 
     private void Update()
@@ -66,9 +72,12 @@ public class PlayerObjectController : NetworkBehaviour
         //Position player car in lobby and move to spawn in level
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
-            //Position car in front of camera
-            gameObject.transform.position = GameObject.Find("carPos").transform.position;
-            gameObject.transform.rotation = GameObject.Find("carPos").transform.rotation;
+            if (gameObject.name == "LocalGamePlayer")
+            {
+                //Position car in front of camera
+                gameObject.transform.position = GameObject.Find("carPos").transform.position;
+                gameObject.transform.rotation = GameObject.Find("carPos").transform.rotation;
+            }
 
             //Toggle cursor on in lobby
             Cursor.visible = true;
@@ -103,6 +112,7 @@ public class PlayerObjectController : NetworkBehaviour
 
                 //Position car near spawn point
                 ResetPosition();
+                UpdateCarCosmetics();
             }
         }
     }
@@ -184,19 +194,40 @@ public class PlayerObjectController : NetworkBehaviour
         manager.StartGame(scene);
     }
 
+    //Customisation
     [Command]
-    public void cmdUpdateCar()
+    public void cmdUpdateCar(int newValue)
     {
-        ChangeCarColour(newColour);
+        ChangeCarColour(PlayerColour, newValue);
     }
 
     //Update car colour
-    private void ChangeCarColour(Material mat)
+    public void ChangeCarColour(int oldValue, int newValue)
     {
-        Material[] mats = playerModel.GetComponent<MeshRenderer>().materials;
-        mats[0] = mat;
-        mats[1] = mat;
-        mats[2] = mat;
-        playerModel.GetComponent<MeshRenderer>().materials = mats;
+        if (oldValue != newValue)
+        {
+            UpdateColour(newValue);
+        }
+
+        //Material[] mats = playerModel.GetComponent<MeshRenderer>().materials;
+        //mats[0] = mat;
+        //mats[1] = mat;
+        //mats[2] = mat;
+        //playerModel.GetComponent<MeshRenderer>().materials = mats;
+    }
+
+    void UpdateColour(int message)
+    {
+        PlayerColour = message;
+        UpdateCarCosmetics();
+    }
+
+    public void UpdateCarCosmetics()
+    {
+        Material[] mats = carMesh.materials;
+        mats[0] = colours[PlayerColour];
+        mats[1] = colours[PlayerColour];
+        mats[2] = colours[PlayerColour];
+        carMesh.materials = mats;
     }
 }

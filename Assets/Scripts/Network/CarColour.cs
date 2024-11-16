@@ -13,6 +13,8 @@ public class CarColour : MonoBehaviour
     [SerializeField] private Material green;
     [SerializeField] private Material yellow;
     [SerializeField] private Material orange;
+    public Material[] playerColours;
+    public int currentColourIndex = 0;
 
     private PlayerObjectController clientObjectController;
     private TMP_Dropdown colourDropdown;
@@ -20,23 +22,29 @@ public class CarColour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        clientObjectController = GameObject.Find("LocalGamePlayer").GetComponent<PlayerObjectController>();
+        //clientObjectController = GameObject.Find("LocalGamePlayer").GetComponent<PlayerObjectController>();
         colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
 
-        colourDropdown.onValueChanged.AddListener(delegate { clientObjectController.cmdUpdateCar(); });
+        //colourDropdown.onValueChanged.AddListener(delegate { clientObjectController.cmdUpdateCar(); });
     }
 
     // Update is called once per frame
     void Update()
     {
-        clientObjectController = GameObject.Find("LocalGamePlayer").GetComponent<PlayerObjectController>();
-        colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
+        if (clientObjectController == null)
+        {
+            clientObjectController = GameObject.Find("LocalGamePlayer").GetComponent<PlayerObjectController>();
+            colourDropdown.onValueChanged.AddListener(delegate { clientObjectController.cmdUpdateCar(currentColourIndex); });
+            //colourDropdown.onValueChanged.AddListener(delegate { clientObjectController.UpdateCarCosmetics(); });
+        }
 
-        colourDropdown.onValueChanged.AddListener(delegate { clientObjectController.cmdUpdateCar(); });
+        colourDropdown = gameObject.GetComponent<TMP_Dropdown>();
     }
 
     public void SetCarColour()
     {
+        currentColourIndex = colourDropdown.value;
+        /*
         if (colourDropdown.value == 0)
         {
             clientObjectController.newColour = red;
@@ -61,5 +69,6 @@ public class CarColour : MonoBehaviour
         {
             clientObjectController.newColour = orange;
         }
+        */
     }
 }
