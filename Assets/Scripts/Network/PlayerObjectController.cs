@@ -72,9 +72,12 @@ public class PlayerObjectController : NetworkBehaviour
         //Position player car in lobby and move to spawn in level
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
-            //Position car in front of camera
-            gameObject.transform.position = GameObject.Find("carPos").transform.position;
-            gameObject.transform.rotation = GameObject.Find("carPos").transform.rotation;
+            if (gameObject.name == "LocalGamePlayer")
+            {
+                //Position car in front of camera
+                gameObject.transform.position = GameObject.Find("carPos").transform.position;
+                gameObject.transform.rotation = GameObject.Find("carPos").transform.rotation;
+            }
 
             //Toggle cursor on in lobby
             Cursor.visible = true;
