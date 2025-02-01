@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hitpoints : MonoBehaviour
 {
+    public Rigidbody rb;
     CarController carController;
     AIController aiController;
     bool isAI;
@@ -73,6 +74,9 @@ public class Hitpoints : MonoBehaviour
             Hitpoints otherScript = other.gameObject.transform.parent.GetComponent<Hitpoints>();
             Debug.Log(otherScript.damage);
             hitpoints = hitpoints - otherScript.damage;
+
+            //Exaggerate force
+            rb.AddExplosionForce(4, otherScript.gameObject.transform.position, 1, 3, ForceMode.Impulse);
 
             //Audio
             other.transform.gameObject.GetComponent<AudioSource>().Play();
